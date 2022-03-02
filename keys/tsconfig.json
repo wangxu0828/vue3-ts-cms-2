@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    // 目标代码(esnext的代码不需要编译)esnext:es5之后
+    // 因为使用了babel
+    "target": "esnext",
+    // 目标代码需要使用的模块化方案(使用了babel)
+    "module": "esnext",
+    // 严格模式检查
+    "strict": true,
+    // 要不要对jsx进行处理(不装换) 有babel不需要这个
+    "jsx": "preserve",
+    // 按照node的方式解析模块 就是找到文件夹直接找index.js
+    "moduleResolution": "node",
+    // 跳过对一些库的类型检测
+    "skipLibCheck": true,
+    // es module 和 commonjs可不可以混用
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    // 要不要生成映射文件(ts -> js)
+    "sourceMap": true,
+    // 文件路径在解析时,基于url
+    "baseUrl": ".",
+    // 指定具体解析使用的类型
+    "types": ["webpack-env"],
+    // 路径解析
+    // 比如 @/components在src/component找(也要和webpack配置的alis相对应)
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    // 可以指定在项目中可以使用哪里库的类型(Proxy/window/dom)
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  // 当前有哪些ts代码需要解析
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  // 排除哪些代码需要解析
+  "exclude": ["node_modules"]
+}
